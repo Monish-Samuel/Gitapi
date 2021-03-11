@@ -1,10 +1,21 @@
-pipeline{
-  agent any
-    stages{
-      stage(Compiling Stage)
-      {
-        bat 'python test_api.py'
-      }
-      
+pipeline {
+    agent any
+
+    stages {        
+        stage('Build'){
+            steps{
+                bat 'python test_api.py'
+            }
+        }
+        stage('Test'){
+            steps{
+                echo 'The job has been tested'
+            }
+        }
+        stage('Deploy'){
+            steps{
+                echo 'Deployed successfully'
+            }
+        }
     }
-  } 
+}
